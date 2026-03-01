@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mind of Their Own — Short Film by Brandasund Peterson</title>
+  <meta name="description" content="Mind of Their Own — an independent short film. Made For A Reason. From Brandasund Peterson." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════ NAVIGATION ════════════════════ -->
+  <nav>
+    <a class="nav-logo" href="#home">
+      <img src="images/logo.png" alt="Mind of Their Own Logo" />2
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">The Film</a></li>
+      <li><a href="#posters">Posters</a></li>
+      <li><a href="#episodes">Episodes</a></li>
+      <li><a href="#trailer">Trailer</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#watch">Watch</a></li>
+    </ul>
+  </nav>
+
+  <!-- ════════════════════ HERO ════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">From Brandasund Peterson</p>
+      <h1 class="hero-title">Mind of<br>Their Own</h1>
+      <p class="hero-subtitle">Made For A Reason</p>
+      <div class="hero-cta">
+        <a href="#trailer" class="btn btn-primary">Watch Trailer</a>
+        <a href="#about" class="btn btn-ghost">Explore the Film</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ ABOUT ════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-text reveal">
+      <p class="section-label">The Film</p>
+      <h2 class="section-title">Built With Purpose.<br>Born From Vision.</h2>
+      <div class="divider"></div>
+
+      <p>
+        <strong>Mind of Their Own</strong> is an independent short film that dares to ask the question 
+        every creator eventually confronts: <em>what does it mean to be made for a reason?</em>
+      </p>
+      <p>
+        Set against otherworldly landscapes and populated by beings that exist on the 
+        boundary between machine and soul, the film explores identity, autonomy, and the 
+        haunting drive to fulfill one's purpose — even when no one is watching.
+      </p>
+
+      <blockquote class="about-quote">
+        "Purpose Without People. A Few Screws Loose. Made For A Reason."<br>
+        — Three stories. One universe.
+      </blockquote>
+
+      <p>
+        Spanning three distinct visual chapters — each drenched in its own palette of amber, 
+        teal, and magenta — <em>Mind of Their Own</em> is a hand-crafted work of independent 
+        animation filmmaking in the truest sense.
+      </p>
+
+      <a href="#episodes" class="btn btn-ghost" style="margin-top:1.5rem;">View All Episodes</a>
+    </div>
+
+    <div class="about-image-stack reveal">
+      <img class="img-main" src="images/poster2.png" alt="Purpose Without People — Episode Poster" />
+      <img class="img-accent" src="images/poster3.png" alt="A Few Screws Loose — Episode Poster" />
+    </div>
+  </section>
+
+  <!-- ════════════════════ POSTERS / GALLERY ════════════════════ -->
+  <section class="gallery" id="posters">
+    <p class="section-label reveal">Artwork</p>
+    <h2 class="section-title reveal">Visual Identity</h2>
+    <p class="gallery-intro reveal">
+      Each chapter of <em>Mind of Their Own</em> carries its own colour world — 
+      a distinct palette that signals a shift in tone, setting, and stakes.
+    </p>
+
+    <div class="posters-grid">
+      <div class="poster-card" onclick="openLightbox('images/poster1.png')">
+        <img src="images/poster3.png" alt="Made For A Reason — Poster" loading="lazy" />
+        <div class="poster-card-overlay">
+          <span class="poster-card-label">Made For A Reason — Chapter I</span>
+        </div>
+      </div>
+      <div class="poster-card" onclick="openLightbox('images/poster2.png')">
+        <img src="images/poster1.png" alt="Purpose Without People — Poster" loading="lazy" />
+        <div class="poster-card-overlay">
+          <span class="poster-card-label">Purpose Without People — Chapter II</span>
+        </div>
+      </div>
+      <div class="poster-card" onclick="openLightbox('images/poster3.png')">
+        <img src="images/poster2.png" alt="A Few Screws Loose — Poster" loading="lazy" />
+        <div class="poster-card-overlay">
+          <span class="poster-card-label">A Few Screws Loose — Chapter III</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ EPISODES ════════════════════ -->
+  <section class="chapters" id="episodes">
+    <p class="section-label reveal">Story</p>
+    <h2 class="section-title reveal">Three Chapters</h2>
+
+    <div class="chapters-list">
+      <div class="chapter-item reveal">
+        <div class="chapter-num">01</div>
+        <div>
+          <div class="chapter-title">Made For A Reason</div>
+          <div class="chapter-tagline">A lone figure wanders a burning world, searching for the purpose it was built to serve.</div>
+        </div>
+        <div class="chapter-color amber"></div>
+        <span class="chapter-tag">Chapter I</span>
+      </div>
+
+      <div class="chapter-item reveal">
+        <div class="chapter-num">02</div>
+        <div>
+          <div class="chapter-title">Purpose Without People</div>
+          <div class="chapter-tagline">Two machines face each other at the end of a world that no longer needs them.</div>
+        </div>
+        <div class="chapter-color teal"></div>
+        <span class="chapter-tag">Chapter II</span>
+      </div>
+
+      <div class="chapter-item reveal">
+        <div class="chapter-num">03</div>
+        <div>
+          <div class="chapter-title">A Few Screws Loose</div>
+          <div class="chapter-tagline">A gunslinger with nothing left to lose discovers what she was always capable of becoming.</div>
+        </div>
+        <div class="chapter-color magenta"></div>
+        <span class="chapter-tag">Chapter III</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ TRAILER / VIDEO ════════════════════ -->
+  <section class="video-section" id="trailer">
+    <p class="section-label reveal">Screening</p>
+    <h2 class="section-title reveal">Watch the Trailer</h2>
+
+    <div class="video-wrapper reveal">
+      <video controls poster="images/poster1.png">
+ <source src="video/trailer.mp4" type="video/mp4" />
+</video>
+
+  </section>
+
+  <!-- ════════════════════ TEAM ════════════════════ -->
+  <section class="team" id="team">
+    <p class="section-label reveal">Credits</p>
+    <h2 class="section-title reveal">The People Behind It</h2>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <p class="team-role">Director &amp; Creator</p>
+        <h3 class="team-name">Brandasund<br>Peterson</h3>
+        <p class="team-bio">
+          The visionary behind <em>Mind of Their Own</em>, Peterson brings a singular 
+          aesthetic to independent short filmmaking — blending hand-crafted imagery 
+          with deeply philosophical storytelling.
+        </p>
+      </div>
+
+      <div class="team-card reveal">
+        <p class="team-role">Website Design</p>
+        <h3 class="team-name">Kyle<br>Wilson</h3>
+        <p class="team-bio">
+          Digital presence and promotional design for <em>Mind of Their Own</em>. 
+          Translating the film's visual language into an online experience 
+          that honors its craft and ambition.
+        </p>
+      </div>
+
+      <div class="team-card reveal">
+        <p class="team-role">Production</p>
+        <h3 class="team-name">Your Credit<br>Here</h3>
+        <p class="team-bio">
+          Add your cast and crew credits here. Each team member deserves 
+          to be celebrated for the work they brought to this independent production.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ REVIEWS ════════════════════ -->
+  <section class="reviews">
+    <p class="section-label reveal">Reception</p>
+    <h2 class="section-title reveal" style="color:var(--cream);">What People Are Saying</h2>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <p class="review-text">
+          "A striking debut — bold visual choices, haunting atmosphere, 
+          and a conceptual clarity rarely seen in short-form independent work."
+        </p>
+        <p class="review-source">— Add Reviewer Name / Publication</p>
+      </div>
+
+      <div class="review-card reveal">
+        <p class="review-text">
+          "The triptych structure is a masterstroke. Three worlds, one obsession — 
+          <em>Mind of Their Own</em> lingers long after the credits roll."
+        </p>
+        <p class="review-source">— Add Reviewer Name / Publication</p>
+      </div>
+
+      <div class="review-card reveal">
+        <p class="review-text">
+          "Proof that independent animation doesn't need a studio budget to 
+          deliver images that burn themselves into your memory."
+        </p>
+        <p class="review-source">— Add Reviewer Name / Publication</p>
+      </div>
+
+      <div class="review-card reveal">
+        <p class="review-text">
+          "Peterson's creatures are unlike anything in contemporary independent 
+          film. Strange, purposeful, and unforgettable."
+        </p>
+        <p class="review-source">— Add Reviewer Name / Publication</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ WATCH / CTA ════════════════════ -->
+  <section class="watch" id="watch">
+    <p class="section-label reveal">Screenings</p>
+    <h2 class="section-title reveal">Experience the Film</h2>
+    <p class="reveal">
+      <em>Mind of Their Own</em> is available for festival screenings, 
+      community presentations, and educational programming. 
+      Reach out to bring it to your audience.
+    </p>
+
+    <div class="watch-buttons reveal">
+      <a href="mailto:contact@mindoftheirown.com" class="btn btn-primary">Book a Screening</a>
+      <a href="#trailer" class="btn btn-ghost">Watch Trailer</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Mind of Their Own" />
+    </div>
+
+    <p class="footer-text">
+      © 2025 Mind of Their Own. From Brandasund Peterson.<br />
+      Website by Kyle Wilson.
+    </p>
+
+    <ul class="footer-links">
+      <li><a href="#about">The Film</a></li>
+      <li><a href="#episodes">Episodes</a></li>
+      <li><a href="#watch">Contact</a></li>
+    </ul>
+  </footer>
+
+  <!-- ════════════════════ LIGHTBOX ════════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">✕ Close</span>
+    <img src="" alt="Poster" id="lightboxImg" />
+  </div>
+
+  <!-- ════════════════════ SCRIPTS ════════════════════ -->
+  <script>
+    /* ── Scroll Reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    /* ── Stagger chapter reveals ── */
+    document.querySelectorAll('.chapter-item').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.12}s`;
+    });
+
+    /* ── Lightbox ── */
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    /* ── Video ── */
+    function handlePlay() {
+      const placeholder = document.getElementById('videoPlaceholder');
+      placeholder.innerHTML = `
+        <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;
+           text-transform:uppercase;color:var(--grey);padding:3rem;">
+          To add your trailer, place your video file in the <code>/video</code> folder<br/>
+          then replace the placeholder in <code>index.html</code> with:<br/><br/>
+          <code style="color:var(--gold);">&lt;video controls poster="images/poster1.png"&gt;<br/>
+          &nbsp;&lt;source src="video/trailer.mp4" type="video/mp4" /&gt;<br/>
+          &lt;/video&gt;</code>
+        </p>
+      `;
+    }
+
+    /* ── Nav background on scroll ── */
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(10,10,10,0.97)'
+        : 'linear-gradient(to bottom, rgba(10,10,10,0.97), transparent)';
+      nav.style.borderBottomColor = window.scrollY > 60
+        ? 'rgba(212,168,75,0.18)'
+        : 'rgba(212,168,75,0.12)';
+      nav.style.transition = 'background 0.4s, border-bottom-color 0.4s';
+    });
+  </script>
+
+</body>
+</html>
