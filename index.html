@@ -9,17 +9,70 @@
 </head>
 <body>
 
+  <!-- ═══ BOOT SEQUENCE OVERLAY ═══ -->
+  <div class="boot-overlay" id="bootOverlay">
+    <div class="boot-content">
+      <div class="boot-signal-rings">
+        <div class="boot-ring boot-ring--1"></div>
+        <div class="boot-ring boot-ring--2"></div>
+        <div class="boot-ring boot-ring--3"></div>
+        <div class="boot-dot"></div>
+      </div>
+      <div class="boot-text">
+        <div class="boot-line" id="bootLine1">INITIALIZING SIGNAL...</div>
+        <div class="boot-line" id="bootLine2">FREQUENCY LOCKED: 142.7 MHz</div>
+        <div class="boot-line" id="bootLine3">COLONY DETECTED</div>
+        <div class="boot-line boot-line--gold" id="bootLine4">MIND OF THEIR OWN</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ OVERLAYS ═══ -->
+  <div class="grain-overlay"></div>
+  <div class="scanline-overlay"></div>
+
+  <!-- ═══ RADIO WAVEFORM — fixed background element ═══ -->
+  <div class="radio-wave-bg">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <path class="wave-path wave-path--1" d="M0,50 Q50,10 100,50 Q150,90 200,50 Q250,10 300,50 Q350,90 400,50 Q450,10 500,50 Q550,90 600,50 Q650,10 700,50 Q750,90 800,50 Q850,10 900,50 Q950,90 1000,50 Q1050,10 1100,50 Q1150,90 1200,50" />
+      <path class="wave-path wave-path--2" d="M0,50 Q50,25 100,50 Q150,75 200,50 Q250,25 300,50 Q350,75 400,50 Q450,25 500,50 Q550,75 600,50 Q650,25 700,50 Q750,75 800,50 Q850,25 900,50 Q950,75 1000,50 Q1050,25 1100,50 Q1150,75 1200,50" />
+    </svg>
+  </div>
+
+  <!-- ═══ SIDE TICKER ═══ -->
+  <div class="side-ticker">
+    <div class="ticker-signal-bar">
+      <div class="ticker-bar"></div>
+      <div class="ticker-bar"></div>
+      <div class="ticker-bar"></div>
+      <div class="ticker-bar"></div>
+      <div class="ticker-bar"></div>
+    </div>
+    <span>SIGNAL ACTIVE</span>
+    <span>LAT 41.40338</span>
+    <span>LONG 2.17403</span>
+    <span>142.7 MHz</span>
+    <span class="ticker-status">● RECEIVING</span>
+  </div>
+
   <!-- ════════════════════ NAVIGATION ════════════════════ -->
-  <nav>
+  <nav id="mainNav">
     <a class="nav-logo" href="#home">
       <img src="images/logo.png" alt="Mind of Their Own Logo" />
     </a>
+    <div class="nav-signal-strength">
+      <div class="signal-bar signal-bar--1"></div>
+      <div class="signal-bar signal-bar--2"></div>
+      <div class="signal-bar signal-bar--3"></div>
+      <div class="signal-bar signal-bar--4"></div>
+      <div class="signal-bar signal-bar--5"></div>
+    </div>
     <ul class="nav-links">
-      <li><a href="#about">The Film</a></li>
-      <li><a href="#posters">Posters</a></li>
-      <li><a href="#trailer">Trailer</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#watch">Watch</a></li>
+      <li><a href="#about" class="nav-link-btn"><span class="nav-index">01</span>The Film</a></li>
+      <li><a href="#posters" class="nav-link-btn"><span class="nav-index">02</span>Posters</a></li>
+      <li><a href="#trailer" class="nav-link-btn"><span class="nav-index">03</span>Trailer</a></li>
+      <li><a href="#team" class="nav-link-btn"><span class="nav-index">04</span>Team</a></li>
+      <li><a href="#watch" class="nav-link-btn"><span class="nav-index">05</span>Watch</a></li>
     </ul>
   </nav>
 
@@ -27,56 +80,165 @@
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
+
+    <!-- Floating data HUD elements -->
+    <div class="hero-hud">
+      <div class="hud-item hud-item--1">MISSION_LOG_001</div>
+      <div class="hud-item hud-item--2">COLONY:ACTIVE</div>
+      <div class="hud-item hud-item--3">HUMANS:UNKNOWN</div>
+      <div class="hud-item hud-item--4">
+        <svg class="hud-waveform" viewBox="0 0 120 40" preserveAspectRatio="none">
+          <polyline class="hud-wave-line" points="0,20 10,8 20,32 30,12 40,28 50,5 60,35 70,15 80,25 90,10 100,30 110,18 120,20" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Radio signal rings — emanating from center -->
+    <div class="hero-signal-rings">
+      <div class="hero-ring hero-ring--1"></div>
+      <div class="hero-ring hero-ring--2"></div>
+      <div class="hero-ring hero-ring--3"></div>
+    </div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">From Brandasund Peterson</p>
-      <h1 class="hero-title">Mind of<br>Their Own</h1>
+      <div class="hero-tag-line">
+        <div class="hero-tag-dot"></div>
+        <p class="hero-eyebrow">From Brandasund Peterson</p>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line hero-title-line--1">Mind of</span>
+        <span class="hero-title-line hero-title-line--2">Their Own</span>
+      </h1>
       <p class="hero-subtitle">Made For A Reason</p>
       <div class="hero-cta">
-        <a href="#trailer" class="btn btn-primary">Watch Trailer</a>
-        <a href="#about" class="btn btn-ghost">Explore the Film</a>
+        <a href="#trailer" class="btn btn-primary" onclick="btnPulse(this)">
+          <span class="btn-signal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </span>
+          Watch Trailer
+          <span class="btn-ripple"></span>
+        </a>
+        <a href="#about" class="btn btn-ghost" onclick="btnPulse(this)">
+          Explore the Film
+          <span class="btn-ripple"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE DIVIDER ═══ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>PURPOSE WITHOUT PEOPLE ✦ A FEW SCREWS LOOSE ✦ MADE FOR A REASON ✦ MIND OF THEIR OWN ✦&nbsp;</span>
+      <span>PURPOSE WITHOUT PEOPLE ✦ A FEW SCREWS LOOSE ✦ MADE FOR A REASON ✦ MIND OF THEIR OWN ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════ ABOUT ════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-header">
+          <span class="section-index">01</span>
+          <div class="section-label-group">
+            <div class="section-label-dot"></div>
+            <p class="section-label">The Film</p>
+          </div>
+        </div>
+        <h2 class="section-title">Built With Purpose.<br>Born From Vision.</h2>
+        <div class="divider"><div class="divider-pulse"></div></div>
+
+        <p>
+          <strong>Mind of Their Own</strong> is an independent short film about a colony of robots that rises from the ashes of a crumbled city in response to a far away radio signal. A team of five robots are sent on a mission to find and save the last remaining humans.
+        </p>
+        <p>
+          Set against otherworldly landscapes and populated by beings that exist on the 
+          boundary between machine and soul, the film explores identity, autonomy, and the 
+          haunting drive to fulfill one's purpose — even when no one is watching.
+        </p>
+
+        <blockquote class="about-quote">
+          <div class="quote-signal-bar"></div>
+          "Purpose Without People. A Few Screws Loose. Made For A Reason."
+        </blockquote>
+
+        <p>
+          Drenched in its own distinct visual palette — amber, teal, and magenta — 
+          <em>Mind of Their Own</em> is a hand-crafted work of independent 
+          filmmaking in the truest sense.
+        </p>
+
+        <a href="#posters" class="btn btn-ghost" onclick="btnPulse(this)" style="margin-top:1.5rem;">
+          View Posters
+          <span class="btn-ripple"></span>
+        </a>
+      </div>
+
+      <div class="about-images reveal">
+        <div class="about-image-stack">
+          <img class="img-main" src="images/poster2.png" alt="Mind of Their Own — Poster" />
+          <img class="img-accent" src="images/poster3.png" alt="Mind of Their Own — Poster" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════ ABOUT ════════════════════ -->
-  <section class="about" id="about">
-    <div class="about-text reveal">
-      <p class="section-label">The Film</p>
-      <h2 class="section-title">Built With Purpose.<br>Born From Vision.</h2>
-      <div class="divider"></div>
-
-      <p>
-        <strong>Mind of Their Own</strong> is an independent short film about a colony of robots that rises from the ashes of a crumbled city in response to a far away radio signal. A team of five robots are sent on a mission to find and save the last remaining humans.
-       
-      </p>
-      <p>
-        Set against otherworldly landscapes and populated by beings that exist on the 
-        boundary between machine and soul, the film explores identity, autonomy, and the 
-        haunting drive to fulfill one's purpose — even when no one is watching.
-      </p>
-
-      <blockquote class="about-quote">
-        "Purpose Without People. A Few Screws Loose. Made For A Reason."
-      </blockquote>
-
-      <p>
-        Drenched in its own distinct visual palette — amber, teal, and magenta — 
-        <em>Mind of Their Own</em> is a hand-crafted work of independent 
-        filmmaking in the truest sense.
-      </p>
-
-      <a href="#posters" class="btn btn-ghost" style="margin-top:1.5rem;">View Posters</a>
+  <!-- ═══ ROBOT ROSTER STRIP ═══ -->
+  <div class="roster-strip">
+    <div class="roster-strip-label">
+      <span class="roster-strip-dot"></span>
+      THE CREW
     </div>
-
-    <div class="about-image-stack reveal">
-      <img class="img-main" src="images/poster2.png" alt="Mind of Their Own — Poster" />
-      <img class="img-accent" src="images/poster3.png" alt="Mind of Their Own — Poster" />
+    <div class="about-roster">
+      <div class="roster-item" onclick="rosterEasterEgg(this, 'The funny one. Loves shorts.')">
+        <span class="roster-dot roster-dot--amber"></span>
+        <span class="roster-name">OMB</span>
+        <span class="roster-secret"></span>
+      </div>
+      <div class="roster-item" onclick="rosterEasterEgg(this, 'The smart one. Zero patience.')">
+        <span class="roster-dot roster-dot--teal"></span>
+        <span class="roster-name">Q</span>
+        <span class="roster-secret"></span>
+      </div>
+      <div class="roster-item" onclick="rosterEasterEgg(this, 'The peacekeeper. Keeps the mission alive.')">
+        <span class="roster-dot roster-dot--magenta"></span>
+        <span class="roster-name">TELE</span>
+        <span class="roster-secret"></span>
+      </div>
+      <div class="roster-item" onclick="rosterEasterEgg(this, 'Quiet. But when Keen talks, listen.')">
+        <span class="roster-dot roster-dot--gold"></span>
+        <span class="roster-name">KEEN</span>
+        <span class="roster-secret"></span>
+      </div>
+      <div class="roster-item" onclick="rosterEasterEgg(this, '... Peeps? Are you there?')">
+        <span class="roster-dot roster-dot--white"></span>
+        <span class="roster-name">PEEPS</span>
+        <span class="roster-secret"></span>
+      </div>
     </div>
-  </section>
+  </div>
+
+  <!-- ═══ SIGNAL WAVEFORM DIVIDER ═══ -->
+  <div class="waveform-divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path class="waveform-path" d="M0,30 L20,30 L25,5 L30,55 L35,15 L40,45 L45,10 L50,50 L55,20 L60,40 L65,30 L200,30 L205,8 L210,52 L215,12 L220,48 L225,8 L230,50 L235,22 L240,38 L245,30 L400,30 L405,5 L410,55 L415,18 L420,42 L425,12 L430,48 L435,25 L440,35 L445,30 L600,30 L605,10 L610,50 L615,15 L620,45 L625,5 L630,55 L635,20 L640,40 L645,30 L800,30 L805,8 L810,52 L815,15 L820,45 L825,10 L830,50 L835,22 L840,38 L845,30 L1000,30 L1005,5 L1010,55 L1015,12 L1020,48 L1025,8 L1030,52 L1035,20 L1040,40 L1045,30 L1200,30" />
+    </svg>
+  </div>
 
   <!-- ════════════════════ POSTERS / GALLERY ════════════════════ -->
   <section class="gallery" id="posters">
-    <p class="section-label reveal">Artwork</p>
+    <div class="section-header reveal">
+      <span class="section-index">02</span>
+      <div class="section-label-group">
+        <div class="section-label-dot"></div>
+        <p class="section-label">Artwork</p>
+      </div>
+    </div>
     <h2 class="section-title reveal">Official Posters</h2>
     <p class="gallery-intro reveal">
       Three official posters for <em>Mind of Their Own</em> — each with its own 
@@ -84,36 +246,66 @@
     </p>
 
     <div class="posters-grid">
-      <div class="poster-card" onclick="openLightbox('images/poster3.png')">
-        <img src="images/poster3.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
-        <div class="poster-card-overlay">
-          <span class="poster-card-label">Mind of Their Own — Made For A Reason</span>
+      <div class="poster-card poster-card--magenta reveal" onclick="openLightbox('images/poster3.png')">
+        <div class="poster-card-inner">
+          <img src="images/poster3.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
+          <div class="poster-card-overlay">
+            <span class="poster-card-number">01</span>
+            <span class="poster-card-label">A Few Screws Loose</span>
+            <span class="poster-card-action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              EXPAND
+            </span>
+          </div>
         </div>
+        <div class="poster-accent-bar"></div>
       </div>
-      <div class="poster-card" onclick="openLightbox('images/poster1.png')">
-        <img src="images/poster1.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
-        <div class="poster-card-overlay">
-          <span class="poster-card-label">Mind of Their Own — Purpose Without People</span>
+      <div class="poster-card poster-card--amber reveal" onclick="openLightbox('images/poster1.png')">
+        <div class="poster-card-inner">
+          <img src="images/poster1.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
+          <div class="poster-card-overlay">
+            <span class="poster-card-number">02</span>
+            <span class="poster-card-label">Purpose Without People</span>
+            <span class="poster-card-action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              EXPAND
+            </span>
+          </div>
         </div>
+        <div class="poster-accent-bar"></div>
       </div>
-      <div class="poster-card" onclick="openLightbox('images/poster2.png')">
-        <img src="images/poster2.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
-        <div class="poster-card-overlay">
-          <span class="poster-card-label">Mind of Their Own — A Few Screws Loose</span>
+      <div class="poster-card poster-card--teal reveal" onclick="openLightbox('images/poster2.png')">
+        <div class="poster-card-inner">
+          <img src="images/poster2.png" alt="Mind of Their Own — Official Poster" loading="lazy" />
+          <div class="poster-card-overlay">
+            <span class="poster-card-number">03</span>
+            <span class="poster-card-label">Made For A Reason</span>
+            <span class="poster-card-action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              EXPAND
+            </span>
+          </div>
         </div>
+        <div class="poster-accent-bar"></div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════ ABOUT THE FILM ════════════════════ -->
+  <!-- ════════════════════ CHAPTERS ════════════════════ -->
   <section class="chapters" id="about-film">
-    <p class="section-label reveal">About</p>
+    <div class="section-header reveal">
+      <span class="section-index">—</span>
+      <div class="section-label-group">
+        <div class="section-label-dot"></div>
+        <p class="section-label">About</p>
+      </div>
+    </div>
     <h2 class="section-title reveal">The Film</h2>
 
     <div class="chapters-list">
       <div class="chapter-item reveal">
         <div class="chapter-num">01</div>
-        <div>
+        <div class="chapter-info">
           <div class="chapter-title">Made For A Reason</div>
           <div class="chapter-tagline"></div>
         </div>
@@ -123,7 +315,7 @@
 
       <div class="chapter-item reveal">
         <div class="chapter-num">02</div>
-        <div>
+        <div class="chapter-info">
           <div class="chapter-title">Purpose Without People</div>
           <div class="chapter-tagline"></div>
         </div>
@@ -133,7 +325,7 @@
 
       <div class="chapter-item reveal">
         <div class="chapter-num">03</div>
-        <div>
+        <div class="chapter-info">
           <div class="chapter-title">A Few Screws Loose</div>
           <div class="chapter-tagline"></div>
         </div>
@@ -143,26 +335,91 @@
     </div>
   </section>
 
+  <!-- ═══ INTERCEPTED TRANSMISSION — SCRIPT ═══ -->
+  <section class="script-section">
+    <div class="script-container reveal">
+      <div class="script-header">
+        <div class="script-header-left">
+          <div class="script-rec-dot"></div>
+          <span>INTERCEPTED TRANSMISSION — DRAFT 3</span>
+        </div>
+        <div class="script-waveform">
+          <svg viewBox="0 0 80 24" preserveAspectRatio="none">
+            <polyline class="script-wave-line" points="0,12 5,4 10,20 15,6 20,18 25,2 30,22 35,8 40,16 45,4 50,20 55,8 60,16 65,4 70,18 75,10 80,12" />
+          </svg>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="script-line"><span class="script-char script-char--amber">OMB:</span> hey, you know i never got to say, i love your shorts.</div>
+        <div class="script-line"><span class="script-char script-char--teal">Q:</span> Oh really? Thank you.</div>
+        <div class="script-line"><span class="script-char script-char--amber">OMB:</span> yeah, yeah, really lovely floral pattern.</div>
+        <div class="script-line"><span class="script-char script-char--teal">Q:</span> Thanks, I found it in a pipe underneath the sports center.</div>
+        <div class="script-line"><span class="script-char script-char--magenta">TELE:</span> do you guys ever feel weird wearing clothes that don't belong to you?</div>
+        <div class="script-line"><span class="script-char script-char--amber">OMB:</span> What? Nah, I don't think they'll miss them. They're too busy being, you know, dust.</div>
+      </div>
+      <div class="script-footer">
+        <div class="script-footer-left">
+          <span class="script-signal-icon">◉</span>
+          <span>SIGNAL FADING...</span>
+        </div>
+        <span class="script-static">▓▓░░▓░▓▓░▓░░▓▓▓░░▓░▓▓░</span>
+      </div>
+    </div>
+    <!-- Easter egg: hidden message that appears on hover -->
+    <div class="hidden-message" id="hiddenMsg">
+      <span>PEEPS? ARE YOU THERE?</span>
+    </div>
+  </section>
+
   <!-- ════════════════════ TRAILER / VIDEO ════════════════════ -->
   <section class="video-section" id="trailer">
-    <p class="section-label reveal">Screening</p>
-    <h2 class="section-title reveal">Watch the Trailer</h2>
-
-    <div class="video-wrapper reveal">
-      <video controls poster="images/poster1.png">
-        <source src="video/trailer.mp4" type="video/mp4" />
-      </video>
+    <div class="section-header reveal" style="justify-content:center;">
+      <span class="section-index">03</span>
+      <div class="section-label-group">
+        <div class="section-label-dot"></div>
+        <p class="section-label">Screening</p>
+      </div>
     </div>
+    <h2 class="section-title reveal" style="text-align:center;">Watch the Trailer</h2>
 
+    <div class="video-frame reveal">
+      <div class="video-frame-corner video-frame-corner--tl"></div>
+      <div class="video-frame-corner video-frame-corner--tr"></div>
+      <div class="video-frame-corner video-frame-corner--bl"></div>
+      <div class="video-frame-corner video-frame-corner--br"></div>
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/MgFWjeWrO7w" 
+          title="Mind of Their Own — Animatic" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-label">
+        <span class="video-label-dot"></span>
+        NOW SCREENING — ANIMATIC v1
+      </div>
+    </div>
   </section>
 
   <!-- ════════════════════ TEAM ════════════════════ -->
   <section class="team" id="team">
-    <p class="section-label reveal">Credits</p>
+    <div class="section-header reveal">
+      <span class="section-index">04</span>
+      <div class="section-label-group">
+        <div class="section-label-dot"></div>
+        <p class="section-label">Credits</p>
+      </div>
+    </div>
     <h2 class="section-title reveal">The People Behind It</h2>
 
     <div class="team-grid">
       <div class="team-card reveal">
+        <div class="team-card-accent"></div>
+        <div class="team-card-signal">
+          <svg viewBox="0 0 40 20" preserveAspectRatio="none"><polyline class="team-wave" points="0,10 5,3 10,17 15,5 20,15 25,3 30,18 35,8 40,10" /></svg>
+        </div>
         <p class="team-role">Director &amp; Creator</p>
         <h3 class="team-name">Brandasund<br>Peterson</h3>
         <p class="team-bio">
@@ -173,6 +430,10 @@
       </div>
 
       <div class="team-card reveal">
+        <div class="team-card-accent"></div>
+        <div class="team-card-signal">
+          <svg viewBox="0 0 40 20" preserveAspectRatio="none"><polyline class="team-wave" points="0,10 5,3 10,17 15,5 20,15 25,3 30,18 35,8 40,10" /></svg>
+        </div>
         <p class="team-role">Website Design</p>
         <h3 class="team-name">Kyle<br>Wilson</h3>
         <p class="team-bio">
@@ -183,6 +444,10 @@
       </div>
 
       <div class="team-card reveal">
+        <div class="team-card-accent"></div>
+        <div class="team-card-signal">
+          <svg viewBox="0 0 40 20" preserveAspectRatio="none"><polyline class="team-wave" points="0,10 5,3 10,17 15,5 20,15 25,3 30,18 35,8 40,10" /></svg>
+        </div>
         <p class="team-role">Production</p>
         <h3 class="team-name">Your Credit<br>Here</h3>
         <p class="team-bio">
@@ -195,11 +460,19 @@
 
   <!-- ════════════════════ REVIEWS ════════════════════ -->
   <section class="reviews">
-    <p class="section-label reveal">Reception</p>
+    <div class="reviews-bg-text">RECEPTION</div>
+    <div class="section-header reveal">
+      <span class="section-index">—</span>
+      <div class="section-label-group">
+        <div class="section-label-dot" style="background:var(--cream);"></div>
+        <p class="section-label" style="color:var(--cream);">Reception</p>
+      </div>
+    </div>
     <h2 class="section-title reveal" style="color:var(--cream);">What People Are Saying</h2>
 
     <div class="reviews-grid">
       <div class="review-card reveal">
+        <div class="review-signal-line"></div>
         <p class="review-text">
           "A striking debut — bold visual choices, haunting atmosphere, 
           and a conceptual clarity rarely seen in short-form independent work."
@@ -208,6 +481,7 @@
       </div>
 
       <div class="review-card reveal">
+        <div class="review-signal-line"></div>
         <p class="review-text">
           "A bold, singular vision. One film, one universe — 
           <em>Mind of Their Own</em> lingers long after the credits roll."
@@ -216,6 +490,7 @@
       </div>
 
       <div class="review-card reveal">
+        <div class="review-signal-line"></div>
         <p class="review-text">
           "Proof that independent animation doesn't need a studio budget to 
           deliver images that burn themselves into your memory."
@@ -224,6 +499,7 @@
       </div>
 
       <div class="review-card reveal">
+        <div class="review-signal-line"></div>
         <p class="review-text">
           "Peterson's creatures are unlike anything in contemporary independent 
           film. Strange, purposeful, and unforgettable."
@@ -235,46 +511,99 @@
 
   <!-- ════════════════════ WATCH / CTA ════════════════════ -->
   <section class="watch" id="watch">
-    <p class="section-label reveal">Screenings</p>
-    <h2 class="section-title reveal">Experience the Film</h2>
-    <p class="reveal">
+    <div class="watch-radial"></div>
+    <div class="watch-signal-rings">
+      <div class="watch-ring watch-ring--1"></div>
+      <div class="watch-ring watch-ring--2"></div>
+    </div>
+    <div class="section-header reveal" style="justify-content:center;">
+      <span class="section-index">05</span>
+      <div class="section-label-group">
+        <div class="section-label-dot"></div>
+        <p class="section-label">Screenings</p>
+      </div>
+    </div>
+    <h2 class="section-title reveal" style="text-align:center;">Experience the Film</h2>
+    <p class="reveal" style="text-align:center;">
       <em>Mind of Their Own</em> is available for festival screenings, 
       community presentations, and educational programming. 
       Reach out to bring it to your audience.
     </p>
 
     <div class="watch-buttons reveal">
-      <a href= "mailto:contact@mindoftheirown.com" class="btn btn-primary">Book a Screening</a>
-      <a href="#trailer" class="btn btn-ghost">Watch Trailer</a>
+      <a href="mailto:contact@mindoftheirown.com" class="btn btn-primary" onclick="btnPulse(this)">
+        Book a Screening
+        <span class="btn-ripple"></span>
+      </a>
+      <a href="#trailer" class="btn btn-ghost" onclick="btnPulse(this)">
+        Watch Trailer
+        <span class="btn-ripple"></span>
+      </a>
     </div>
   </section>
 
   <!-- ════════════════════ FOOTER ════════════════════ -->
   <footer>
-    <div class="footer-logo">
-      <img src="images/logo.png" alt="Mind of Their Own" />
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Mind of Their Own" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="#about">The Film</a></li>
+        <li><a href="#posters">Posters</a></li>
+        <li><a href="#watch">Contact</a></li>
+      </ul>
     </div>
-
-    <p class="footer-text">
-      © 2025 Mind of Their Own. From Brandasund Peterson.<br />
-      Website by Kyle Wilson.
-    </p>
-
-    <ul class="footer-links">
-      <li><a href="#about">The Film</a></li>
-      <li><a href="#posters">Posters</a></li>
-      <li><a href="#watch">Contact</a></li>
-    </ul>
+    <div class="footer-bottom">
+      <p class="footer-text">
+        © 2025 Mind of Their Own. From Brandasund Peterson. Website by Kyle Wilson.
+      </p>
+      <div class="footer-signal">
+        <span class="footer-signal-dot"></span>
+        END TRANSMISSION
+      </div>
+    </div>
+    <!-- Easter egg footer -->
+    <div class="footer-easter-egg" id="footerEgg" onclick="triggerEndTransmission()">
+      <span>◉ CLICK TO END TRANSMISSION</span>
+    </div>
   </footer>
 
   <!-- ════════════════════ LIGHTBOX ════════════════════ -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close" onclick="closeLightbox()">✕ Close</span>
-    <img src="" alt="Poster" id="lightboxImg" />
+    <span class="lightbox-close" onclick="closeLightbox()">✕ CLOSE TRANSMISSION</span>
+    <div class="lightbox-signal-frame">
+      <img src="" alt="Poster" id="lightboxImg" />
+    </div>
+  </div>
+
+  <!-- ═══ END TRANSMISSION OVERLAY (Easter Egg) ═══ -->
+  <div class="end-transmission" id="endTransmission">
+    <div class="end-content">
+      <div class="end-static">NO SIGNAL</div>
+      <div class="end-message">TRANSMISSION ENDED</div>
+      <div class="end-restart" onclick="restartTransmission()">↻ RECONNECT</div>
+    </div>
   </div>
 
   <!-- ════════════════════ SCRIPTS ════════════════════ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    /* ── Boot Sequence ── */
+    window.addEventListener('load', () => {
+      const boot = document.getElementById('bootOverlay');
+      const lines = ['bootLine1','bootLine2','bootLine3','bootLine4'];
+      lines.forEach((id, i) => {
+        setTimeout(() => {
+          document.getElementById(id).classList.add('boot-line--visible');
+        }, 600 + i * 700);
+      });
+      setTimeout(() => {
+        boot.classList.add('boot--done');
+        document.body.style.overflow = '';
+      }, 3800);
+      document.body.style.overflow = 'hidden';
+    });
+
     /* ── Scroll Reveal ── */
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -284,12 +613,15 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    /* ── Stagger chapter reveals ── */
+    /* ── Stagger ── */
     document.querySelectorAll('.chapter-item').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.12}s`;
+      el.style.transitionDelay = `${i * 0.15}s`;
+    });
+    document.querySelectorAll('.script-line').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.08}s`;
     });
 
     /* ── Lightbox ── */
@@ -298,41 +630,86 @@
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
       document.body.style.overflow = '';
     }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeLightbox();
+    /* ── Nav on scroll ── */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 80);
     });
 
-    /* ── Video ── */
-    function handlePlay() {
-      const placeholder = document.getElementById('videoPlaceholder');
-      placeholder.innerHTML = `
-        <p style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;
-           text-transform:uppercase;color:var(--grey);padding:3rem;">
-          To add your trailer, place your video file in the <code>/video</code> folder<br/>
-          then replace the placeholder in <code>index.html</code> with:<br/><br/>
-          <code style="color:var(--gold);">&lt;video controls poster="images/poster1.png"&gt;<br/>
-          &nbsp;&lt;source src="video/trailer.mp4" type="video/mp4" /&gt;<br/>
-          &lt;/video&gt;</code>
-        </p>
-      `;
+    /* ── Parallax HUD ── */
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      document.querySelectorAll('.hud-item').forEach((el, i) => {
+        el.style.transform = `translateY(${y * (0.1 + i * 0.06)}px)`;
+      });
+    });
+
+    /* ── Button ripple effect ── */
+    function btnPulse(btn) {
+      const ripple = btn.querySelector('.btn-ripple');
+      if (!ripple) return;
+      ripple.classList.remove('btn-ripple--active');
+      void ripple.offsetWidth; // reflow
+      ripple.classList.add('btn-ripple--active');
+      setTimeout(() => ripple.classList.remove('btn-ripple--active'), 700);
     }
 
-    /* ── Nav background on scroll ── */
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.background = window.scrollY > 60
-        ? 'rgba(10,10,10,0.97)'
-        : 'linear-gradient(to bottom, rgba(10,10,10,0.97), transparent)';
-      nav.style.borderBottomColor = window.scrollY > 60
-        ? 'rgba(212,168,75,0.18)'
-        : 'rgba(212,168,75,0.12)';
-      nav.style.transition = 'background 0.4s, border-bottom-color 0.4s';
+    /* ── Roster Easter Egg ── */
+    function rosterEasterEgg(el, msg) {
+      const secret = el.querySelector('.roster-secret');
+      const isVisible = secret.classList.contains('roster-secret--visible');
+      // Close all others first
+      document.querySelectorAll('.roster-secret').forEach(s => {
+        s.classList.remove('roster-secret--visible');
+        s.textContent = '';
+      });
+      if (!isVisible) {
+        secret.textContent = msg;
+        // Force reflow then show
+        void secret.offsetWidth;
+        secret.classList.add('roster-secret--visible');
+      }
+    }
+
+    /* ── Script section hover Easter egg ── */
+    const scriptContainer = document.querySelector('.script-container');
+    if (scriptContainer) {
+      scriptContainer.addEventListener('mouseenter', () => {
+        document.getElementById('hiddenMsg').classList.add('hidden-message--visible');
+      });
+      scriptContainer.addEventListener('mouseleave', () => {
+        document.getElementById('hiddenMsg').classList.remove('hidden-message--visible');
+      });
+    }
+
+    /* ── End Transmission Easter Egg ── */
+    function triggerEndTransmission() {
+      document.getElementById('endTransmission').classList.add('end--active');
+      document.body.style.overflow = 'hidden';
+    }
+    function restartTransmission() {
+      document.getElementById('endTransmission').classList.remove('end--active');
+      document.body.style.overflow = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── Secret: Konami-ish code → triple click the logo to glitch the page ── */
+    let logoClicks = 0;
+    document.querySelector('.nav-logo').addEventListener('click', (e) => {
+      logoClicks++;
+      if (logoClicks >= 3) {
+        e.preventDefault();
+        document.body.classList.toggle('glitch-mode');
+        logoClicks = 0;
+        setTimeout(() => document.body.classList.remove('glitch-mode'), 3000);
+      }
+      setTimeout(() => { logoClicks = 0; }, 1000);
     });
   </script>
 
